@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cbebccabb734cf498e1b3c3471b2b6, type: 3}
+  m_Name: LevelsSO
+  m_EditorClassIdentifier: 
+  levels:
+  - targetShapeType: 0
+    targetPos: {x: 5, y: 7}
+    targetScale: 1
+    targetRotation: 0
+    availableTransformations: 0100000001000000000000000000000000000000
+  - targetShapeType: 2
+    targetPos: {x: -5, y: 7}
+    targetScale: 1
+    targetRotation: 20
+    availableTransformations: 0100000001000000020000000000000000000000
+  - targetShapeType: 3
+    targetPos: {x: -2, y: 5}
+    targetScale: 1
+    targetRotation: 90
+    availableTransformations: 0300000003000000030000000300000003000000
