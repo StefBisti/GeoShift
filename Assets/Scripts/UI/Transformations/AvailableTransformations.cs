@@ -5,6 +5,8 @@ using UnityEngine;
 public class AvailableTransformations : MonoBehaviour {
     public event Action<int> OnSelected;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private MainShape mainShape;
+    [SerializeField] private ShapeTransformations shapeTransformations;
     [SerializeField] private SelectedTransformations selectedTransformations;
     [SerializeField] private int[] availableTrCounts;
     [SerializeField] private RectTransform[] availableTrRTs;
@@ -13,10 +15,13 @@ public class AvailableTransformations : MonoBehaviour {
     [SerializeField] private Vector2 spaceBetween;
     [SerializeField] private float animationTime;
     [SerializeField] private LeanTweenType ease;
+    private bool canChoose = true;
 
     private void OnEnable(){
         selectedTransformations.OnAddBack += AddBack;
         levelManager.OnLevelChanged += HandleOnLevelChanged;
+        mainShape.OnDeath += HandleShapeDeath;
+        mainShape.OnReset += HandleShapeReset;
     }
 
     private void OnDisable(){
@@ -26,10 +31,14 @@ public class AvailableTransformations : MonoBehaviour {
         if(levelManager != null){
             levelManager.OnLevelChanged -= HandleOnLevelChanged;
         }
+        if(mainShape != null){
+            mainShape.OnDeath -= HandleShapeDeath;
+            mainShape.OnReset -= HandleShapeReset;
+        }
     }
 
     private void Start(){
-        HandleOnLevelChanged(0);
+        HandleOnLevelChanged(levelManager.Level);
     }
 
     private void Setup(){
@@ -48,7 +57,7 @@ public class AvailableTransformations : MonoBehaviour {
     }
 
     public void Select(int index){
-        if(availableTrCounts[index] == 0) return;
+        if(canChoose == false || availableTrCounts[index] == 0) return;
         availableTrCounts[index]--;
         availableTrTexts[index].text = availableTrCounts[index].ToString();
         if(availableTrCounts[index] == 0){
@@ -60,7 +69,7 @@ public class AvailableTransformations : MonoBehaviour {
                 }
             }
         }
-        
+        shapeTransformations.SelectTransformation(index);
         OnSelected?.Invoke(index);
     }
 
@@ -97,5 +106,15 @@ public class AvailableTransformations : MonoBehaviour {
     private void HandleOnLevelChanged(int level){
         Array.Copy(levelManager.GetLevelData(level).availableTransformations, availableTrCounts, availableTrCounts.Length);
         Setup();
+    }
+
+    private void HandleShapeDeath(){
+        canChoose = false;
+    }
+
+    private void HandleShapeReset(){
+        Array.Copy(levelManager.GetCurrentLevelData().availableTransformations, availableTrCounts, availableTrCounts.Length);
+        Setup();
+        canChoose = true;
     }
 }

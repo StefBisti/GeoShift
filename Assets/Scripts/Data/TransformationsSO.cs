@@ -7,7 +7,7 @@ public class TransformationsSO : ScriptableObject {
 
 [System.Serializable]
 public struct TransformationData {
-    public float minRange, maxRange, initialValue;
+    public float minRange, maxRange, initialValue, snapIntervals, snapThreshold;
     public string format;
     public int decimals;
     public bool needsSlider;

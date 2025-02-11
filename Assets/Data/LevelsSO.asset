@@ -13,18 +13,77 @@ MonoBehaviour:
   m_Name: LevelsSO
   m_EditorClassIdentifier: 
   levels:
-  - targetShapeType: 0
-    targetPos: {x: 5, y: 7}
-    targetScale: 1
-    targetRotation: 0
+  - targetPosData:
+      worldPos: {x: 5, y: 7}
+      scale: 1
+      rot: 0
+    targetShapeType: 0
     availableTransformations: 0100000001000000000000000000000000000000
-  - targetShapeType: 2
-    targetPos: {x: -5, y: 7}
-    targetScale: 1
-    targetRotation: 20
-    availableTransformations: 0100000001000000020000000000000000000000
-  - targetShapeType: 3
-    targetPos: {x: -2, y: 5}
-    targetScale: 1
-    targetRotation: 90
+    staticObstacles: []
+    movingObstacles:
+    - isMoving: 1
+      startPos: {x: 8, y: -8}
+      endPos: {x: -8, y: -8}
+      rotationSpeed: 1
+      halfCycleDuration: 2
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 0
+      childLocalPos: {x: 0, y: 0}
+      orbitingSpeed: 0
+  - targetPosData:
+      worldPos: {x: -5, y: 7}
+      scale: 1
+      rot: 0
+    targetShapeType: 3
+    availableTransformations: 0000000000000000010000000000000000000000
+    staticObstacles:
+    - obstacleParts:
+      - bottomLeft: {x: -6, y: -7}
+        topRight: {x: -5, y: 0}
+      - bottomLeft: {x: -5, y: -7}
+        topRight: {x: 0, y: -6}
+      - bottomLeft: {x: -1, y: -6}
+        topRight: {x: 0, y: -4}
+      contourVertices:
+      - referencePartIndex: 0
+        corner: 0
+      - referencePartIndex: 0
+        corner: 1
+      - referencePartIndex: 0
+        corner: 2
+      - referencePartIndex: 1
+        corner: 1
+      - referencePartIndex: 2
+        corner: 0
+      - referencePartIndex: 2
+        corner: 1
+      - referencePartIndex: 2
+        corner: 2
+      - referencePartIndex: 1
+        corner: 3
+    movingObstacles: []
+  - targetPosData:
+      worldPos: {x: -2, y: -2}
+      scale: 0.5
+      rot: 0
+    targetShapeType: 2
+    availableTransformations: 0000000001000000000000000100000000000000
+    staticObstacles: []
+    movingObstacles: []
+  - targetPosData:
+      worldPos: {x: -4, y: 10}
+      scale: 0.5
+      rot: 0
+    targetShapeType: 2
+    availableTransformations: 0000000001000000000000000100000000000000
+    staticObstacles: []
+    movingObstacles: []
+  - targetPosData:
+      worldPos: {x: -8, y: 8}
+      scale: 1
+      rot: 90
+    targetShapeType: 1
     availableTransformations: 0300000003000000030000000300000003000000
+    staticObstacles: []
+    movingObstacles: []

@@ -24,7 +24,11 @@ public class LevelTitle : MonoBehaviour {
         xPos = mainRT.anchoredPosition.x;
     }
 
-    private void SetNewLevel(int level) => StartCoroutine(HandleAnimation(level));
+    private void Start(){
+        mainValue.text = (levelManager.Level + 1).ToString();
+    }
+
+    private void SetNewLevel(int level) => StartCoroutine(HandleAnimation(level+1));
 
     private IEnumerator HandleAnimation(int level){
         secondaryRT.anchoredPosition = new Vector2(xPos, topY);

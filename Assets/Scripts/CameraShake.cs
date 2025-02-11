@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Playground.LinearTransformations {
     public class CameraHandler : MonoBehaviour {
-        //[SerializeField] private MainShapeBehaviour shapeBehaviour;
+        [SerializeField] private MainShape mainShape;
         [SerializeField] private AnimationCurve shakeMagnitudeCurve;
         [SerializeField] private float shakeDuration, shakeMinMagnitude, shakeMaxMagnitude;
         private float shakeTimer = 0f;
@@ -11,12 +11,12 @@ namespace Playground.LinearTransformations {
 
 
         private void OnEnable(){
-            //shapeBehaviour.OnDeath += HandleOnDeath;
+            mainShape.OnDeath += HandleOnDeath;
         }
 
         private void OnDisable(){
-            //if(shapeBehaviour != null)
-            //    shapeBehaviour.OnDeath -= HandleOnDeath;
+            if(mainShape != null)
+                mainShape.OnDeath -= HandleOnDeath;
         }
 
         private void Start() {

@@ -1,20 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using Unity.Burst.Intrinsics;
 
 public class SelectedTransformations : MonoBehaviour {
     public event Action<int> OnAddBack;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private MainShape mainShape;
+    [SerializeField] private ShapeTransformations shapeTransformations;
     [SerializeField] private AvailableTransformations availableTransformations;
     [SerializeField] private Vector2 spaceBetween;
     [SerializeField] private Sprite[] transformationSprites;
     [SerializeField] private float disabledAlpha;
     [SerializeField] private RectTransform pointerRT;
-    [SerializeField] private CanvasGroup pointerCG;
+    [SerializeField] private CanvasGroup pointerCG, selectedTransformationsCG;
     [SerializeField] private CustomSlider slider;
     [SerializeField] private TransformationsSO transformationsSO;
-    //[SerializeField] private MainShapeBehaviour mainShape;
     private float pointerY;
     private int[] selectedTransformations = new int[20];
     private int selectedTransformationsCount = 0;
@@ -23,6 +23,8 @@ public class SelectedTransformations : MonoBehaviour {
     private void OnEnable(){
         availableTransformations.OnSelected += HandleOnSelected;
         levelManager.OnLevelChanged += HandleOnLevelChanged;
+        mainShape.OnReset += Reset;
+        mainShape.OnDeath += HandleOnShapeDeath;
     }
 
     private void OnDisable(){
@@ -31,6 +33,10 @@ public class SelectedTransformations : MonoBehaviour {
         }
         if(levelManager != null){
             levelManager.OnLevelChanged -= HandleOnLevelChanged;
+        }
+        if(mainShape != null){
+            mainShape.OnReset -= Reset;
+            mainShape.OnDeath -= HandleOnShapeDeath;
         }
     }
 
@@ -62,7 +68,6 @@ public class SelectedTransformations : MonoBehaviour {
 
         selectedTransformations[selectedTransformationsCount-1] = index;
         slider.Set(transformationsSO.datas[index]);
-        //mainShape.SelectTransformation(index);
     }
 
     public void AddBackLast(){
@@ -79,7 +84,7 @@ public class SelectedTransformations : MonoBehaviour {
             slider.Set(transformationsSO.datas[selectedTransformations[selectedTransformationsCount-1]]);
         }
         
-        //mainShape.UndoTransformation();
+        shapeTransformations.UndoToPreviousTransformation();
         OnAddBack?.Invoke(selectedTransformations[selectedTransformationsCount]);
     }
 
@@ -95,12 +100,21 @@ public class SelectedTransformations : MonoBehaviour {
         return availableTransformations.GetAddBackWorldPos(selectedTransformations[selectedTransformationsCount]);
     }
 
-    private void HandleOnLevelChanged(int _){
+
+    private void Reset(){
         for(int i=2; i<transform.childCount; i++){
             Destroy(transform.GetChild(i).gameObject);
         }
         pointerCG.SetCG(false);
         selectedTransformations = new int[20];
         selectedTransformationsCount = 0;
+        selectedTransformationsCG.blocksRaycasts = selectedTransformationsCG.interactable = true;
+    }
+
+    private void HandleOnLevelChanged(int _) => Reset();
+
+    private void HandleOnShapeDeath(){
+        pointerCG.SetCG(false);
+        selectedTransformationsCG.blocksRaycasts = selectedTransformationsCG.interactable = false;
     }
 }

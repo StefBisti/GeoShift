@@ -7,15 +7,17 @@ public class CustomSlider : MonoBehaviour {
     [SerializeField] private EventTrigger movementEventTrigger;
     [SerializeField] private RectTransform sliderRT, clampRT, knobRT, leftRT, rightRT;
     [SerializeField] private float padding;
-    [SerializeField] private float minValue, maxValue;
+    [SerializeField] private float minValue, maxValue, snapIntervals, snapThreshold;
     [SerializeField] private int decimals;
     [SerializeField] private string format;
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private float hideY, shownY, hideAnimationDuration;
     [SerializeField] private LeanTweenType hideEase, showEase;
+    [SerializeField] private CanvasGroup sliderCanvasGroup;
     [SerializeField] private LevelManager levelManager;
-    //[SerializeField] private MainShapeBehaviour shapeBehaviour;
-    //[SerializeField] private TargetShapeBehaviour targetHandler;
+    [SerializeField] private ShapeTransformations shapeTransformations;
+    [SerializeField] private TargetShape targetShape;
+    [SerializeField] private MainShape mainShape;
     private float knobY, knobClamp;
     private float maxWidth, sizeY, p;
     private float initX;
@@ -23,10 +25,15 @@ public class CustomSlider : MonoBehaviour {
 
     private void OnEnable(){
         levelManager.OnLevelChanged += HandleOnLevelChanged;
+        mainShape.OnDeath += Hide;
     }
     private void OnDisable(){
         if(levelManager != null)
             levelManager.OnLevelChanged -= HandleOnLevelChanged;
+
+        if(mainShape != null){
+            mainShape.OnDeath -= Hide;
+        }
     }
 
     private void Awake(){
@@ -47,21 +54,25 @@ public class CustomSlider : MonoBehaviour {
         rightRT.sizeDelta = new Vector2(maxWidth / 2 - padding / 2, sizeY);
         
         float value = Mathf.Lerp(minValue, maxValue, 0.5f);
+        float rounded = Mathf.Round(value / snapIntervals) * snapIntervals;
+        if(Mathf.Abs(value - rounded) < snapThreshold) value = rounded;
+
         valueText.text = string.Format(format, Mathf.Round(value * p) / p);
     }
 
     public void Set(TransformationData data){
         minValue = data.minRange;
         maxValue = data.maxRange;
+        snapIntervals = data.snapIntervals;
+        snapThreshold = data.snapThreshold;
         format = data.format;
         decimals = data.decimals;
         p = Mathf.Pow(10f, decimals);
-        float value = Mathf.Lerp(minValue, maxValue, 0.5f);
-        valueText.text = string.Format(format, Mathf.Round(value * p) / p);
         HardSet(Mathf.InverseLerp(data.minRange, data.maxRange, data.initialValue));
 
         if(data.needsSlider != on) {
             on = data.needsSlider;
+            sliderCanvasGroup.blocksRaycasts = sliderCanvasGroup.interactable = on;
             LeanTween.value(sliderRT.gameObject, MoveToY, on ? hideY : shownY, on ? shownY : hideY, hideAnimationDuration);
         }
     }
@@ -69,6 +80,7 @@ public class CustomSlider : MonoBehaviour {
     public void Hide(){
         if(on == false) return;
         on = false;
+        sliderCanvasGroup.blocksRaycasts = sliderCanvasGroup.interactable = on;
         LeanTween.value(sliderRT.gameObject, MoveToY, shownY, hideY, hideAnimationDuration);
     }
 
@@ -86,6 +98,8 @@ public class CustomSlider : MonoBehaviour {
 
         float vt = Mathf.InverseLerp(-knobClamp, knobClamp, clampedX);
         float value = Mathf.Lerp(minValue, maxValue, vt);
+        float rounded = Mathf.Round(value / snapIntervals) * snapIntervals;
+        if(Mathf.Abs(value - rounded) < snapThreshold) value = rounded;
         valueText.text = string.Format(format, Mathf.Round(value * p) / p);
     }
 
@@ -105,13 +119,15 @@ public class CustomSlider : MonoBehaviour {
 
         float vt = Mathf.InverseLerp(-knobClamp, knobClamp, clampedX);
         float value = Mathf.Lerp(minValue, maxValue, vt);
+        float rounded = Mathf.Round(value / snapIntervals) * snapIntervals;
+        if(Mathf.Abs(value - rounded) < snapThreshold) value = rounded;
         valueText.text = string.Format(format, Mathf.Round(value * p) / p);
 
-        //shapeBehaviour.TweakTransformation(value);
+        shapeTransformations.TweakTransformation(value);
     }
 
     private void OnEndDrag(){
-        //targetHandler.CheckCompletion();
+        targetShape.CheckCompletion();
     }
 
     private void HandleOnLevelChanged(int _) => Hide();

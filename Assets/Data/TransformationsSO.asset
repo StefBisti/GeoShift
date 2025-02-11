@@ -16,30 +16,40 @@ MonoBehaviour:
   - minRange: -10
     maxRange: 10
     initialValue: 0
+    snapIntervals: 1
+    snapThreshold: 0.15
     format: '{0}'
     decimals: 1
     needsSlider: 1
   - minRange: -10
     maxRange: 10
     initialValue: 0
+    snapIntervals: 1
+    snapThreshold: 0.15
     format: '{0}'
     decimals: 1
     needsSlider: 1
   - minRange: -180
     maxRange: 180
     initialValue: 0
+    snapIntervals: 15
+    snapThreshold: 2
     format: "{0}\xB0"
     decimals: 0
     needsSlider: 1
   - minRange: 0.5
     maxRange: 2
     initialValue: 1
+    snapIntervals: 0.25
+    snapThreshold: 0.05
     format: '{0}x'
     decimals: 2
     needsSlider: 1
   - minRange: 0
     maxRange: 0
     initialValue: 0
+    snapIntervals: 0
+    snapThreshold: 0
     format: 
     decimals: 0
     needsSlider: 0

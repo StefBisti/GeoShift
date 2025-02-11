@@ -7,8 +7,10 @@ public class LevelsSO : ScriptableObject {
 
 [System.Serializable]
 public struct LevelData {
+    public PositionData targetPosData;
     public ShapeType targetShapeType;
-    public Vector2 targetPos;
-    public float targetScale, targetRotation;
     public int[] availableTransformations;
+    public StaticObstacleData[] staticObstacles;
+    public MovingObstacleData[] movingObstacles;
 }
+
