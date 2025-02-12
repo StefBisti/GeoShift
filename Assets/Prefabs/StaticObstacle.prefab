@@ -134,15 +134,7 @@ PolygonCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
-    m_Paths:
-    - - {x: -6, y: -7}
-      - {x: -6, y: 0}
-      - {x: -5, y: 0}
-      - {x: -5, y: -6}
-      - {x: -1, y: -6}
-      - {x: -1, y: -4}
-      - {x: 0, y: -4}
-      - {x: 0, y: -7}
+    m_Paths: []
   m_UseDelaunayMesh: 0
 --- !u!114 &900057974033318839
 MonoBehaviour:
@@ -156,30 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd4b2077466142edb74454815b868c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleParts:
-  - bottomLeft: {x: -6, y: -7}
-    topRight: {x: -5, y: 0}
-  - bottomLeft: {x: -5, y: -7}
-    topRight: {x: 0, y: -6}
-  - bottomLeft: {x: -1, y: -6}
-    topRight: {x: 0, y: -4}
-  contourVertices:
-  - referencePartIndex: 0
-    corner: 0
-  - referencePartIndex: 0
-    corner: 1
-  - referencePartIndex: 0
-    corner: 2
-  - referencePartIndex: 1
-    corner: 1
-  - referencePartIndex: 2
-    corner: 0
-  - referencePartIndex: 2
-    corner: 1
-  - referencePartIndex: 2
-    corner: 2
-  - referencePartIndex: 1
-    corner: 3
+  points: []
   meshFilter: {fileID: 8066168680990204114}
   lineRenderer: {fileID: 3826169777886157819}
 --- !u!1 &5023476218441185380
@@ -259,15 +228,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: -6, y: -7, z: 0}
-  - {x: -6, y: 0, z: 0}
-  - {x: -5, y: 0, z: 0}
-  - {x: -5, y: -6, z: 0}
-  - {x: -1, y: -6, z: 0}
-  - {x: -1, y: -4, z: 0}
-  - {x: 0, y: -4, z: 0}
-  - {x: 0, y: -7, z: 0}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2

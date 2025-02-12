@@ -7825,6 +7825,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544256422}
   m_CullTransparentMesh: 1
+--- !u!1 &582947175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582947177}
+  - component: {fileID: 582947176}
+  m_Layer: 0
+  m_Name: LEVEL_MAKER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &582947176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582947175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f50fe2f857d43d0a5d58696d2bb94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsSO: {fileID: 11400000, guid: 4144eaba4da474a3abda0f192c0023f4, type: 2}
+  shape: {fileID: 1759337596808402438}
+  origin: {fileID: 4811030695512416373}
+  axis: {fileID: 1945725344}
+  selectedTransformations: {fileID: 44388060}
+  levelData:
+    targetPosData:
+      worldPos: {x: 0, y: 0}
+      scale: 0
+      rot: 0
+    targetShapeType: 0
+    availableTransformations: 
+    staticObstacles: []
+    movingObstacles: []
+  isListeningStatic: 0
+  staticpoints: []
+  guiDotSize: 20
+  guiLineThickness: 0.3
+--- !u!4 &582947177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582947175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604243809
 GameObject:
   m_ObjectHideFlags: 0
@@ -22068,3 +22130,4 @@ SceneRoots:
   - {fileID: 434889910}
   - {fileID: 154898562}
   - {fileID: 700493859}
+  - {fileID: 582947177}

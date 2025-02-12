@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1829653122467262482}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2278902927617872572}
   m_Layer: 0
   m_Name: MovingObstaclePivot
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,13 +185,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1829653122467262482}
   child: {fileID: 4187727221179951477}
-  isMoving: 0
-  startPos: {x: 0, y: -5}
-  endPos: {x: 8, y: -5}
+  isMoving: 1
+  startPos: {x: 0, y: 0}
+  endPos: {x: 0, y: 0}
   rotationSpeed: 0
   halfCycleDuration: 1
-  firstHalfEase: 6
-  secondHalfEase: 5
+  firstHalfEase: 4
+  secondHalfEase: 4
   isOrbiting: 1
   childLocalPos: {x: 0, y: 8}
-  orbitingSpeed: 100
+  orbitingSpeed: 0
