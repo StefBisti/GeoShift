@@ -4,35 +4,34 @@ using System;
 
 public class SelectedTransformations : MonoBehaviour {
     public event Action<int> OnAddBack;
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private MainShape mainShape;
     [SerializeField] private ShapeTransformations shapeTransformations;
     [SerializeField] private AvailableTransformations availableTransformations;
-    [SerializeField] private Vector2 spaceBetween;
+    [SerializeField] private Vector2 spaceBetween, pointerOffset;
+    [SerializeField] private int wrapCount;
     [SerializeField] private Sprite[] transformationSprites;
     [SerializeField] private float disabledAlpha;
     [SerializeField] private RectTransform pointerRT;
     [SerializeField] private CanvasGroup pointerCG, selectedTransformationsCG;
     [SerializeField] private CustomSlider slider;
     [SerializeField] private TransformationsSO transformationsSO;
-    private float pointerY;
     private int[] selectedTransformations = new int[20];
     private int selectedTransformationsCount = 0;
     private RectTransform prefab;
 
-    private void OnEnable(){
+    private void Awake(){
         availableTransformations.OnSelected += HandleOnSelected;
-        levelManager.OnLevelChanged += HandleOnLevelChanged;
+        LevelManager.Instance.OnLevelChanged += HandleOnLevelChanged;
         mainShape.OnReset += Reset;
         mainShape.OnDeath += HandleOnShapeDeath;
     }
 
-    private void OnDisable(){
+    private void OnDestroy(){
         if(availableTransformations != null){
             availableTransformations.OnSelected -= HandleOnSelected;
         }
-        if(levelManager != null){
-            levelManager.OnLevelChanged -= HandleOnLevelChanged;
+        if(LevelManager.Instance != null){
+            LevelManager.Instance.OnLevelChanged -= HandleOnLevelChanged;
         }
         if(mainShape != null){
             mainShape.OnReset -= Reset;
@@ -41,7 +40,6 @@ public class SelectedTransformations : MonoBehaviour {
     }
 
     private void Start(){
-        pointerY = pointerRT.anchoredPosition.y;
         pointerCG.SetCG(false);
 
         prefab = transform.GetChild(1).GetComponent<RectTransform>();
@@ -51,7 +49,9 @@ public class SelectedTransformations : MonoBehaviour {
     private void HandleOnSelected(int index){
         RectTransform newTr = Instantiate(prefab, transform);
         newTr.name = "Transformation";
-        newTr.anchoredPosition = spaceBetween * selectedTransformationsCount;
+        int s = selectedTransformationsCount;
+        Vector2 pos = new Vector2(spaceBetween.x * (s % wrapCount), spaceBetween.y * (s / wrapCount));
+        newTr.anchoredPosition = pos;
         selectedTransformationsCount++;
         newTr.GetChild(0).GetComponent<Image>().sprite = transformationSprites[index];
 
@@ -64,7 +64,7 @@ public class SelectedTransformations : MonoBehaviour {
 
         if(selectedTransformationsCount == 1)
             pointerCG.alpha = 1f;
-        pointerRT.anchoredPosition = new Vector2(newTr.anchoredPosition.x, pointerY);
+        pointerRT.anchoredPosition = pos + pointerOffset;
 
         selectedTransformations[selectedTransformationsCount-1] = index;
         slider.Set(transformationsSO.datas[index]);
@@ -80,7 +80,7 @@ public class SelectedTransformations : MonoBehaviour {
             slider.Hide();
         }
         else {
-            pointerRT.anchoredPosition = new Vector2(transform.GetChild(selectedTransformationsCount + 1).GetComponent<RectTransform>().anchoredPosition.x, pointerY);
+            pointerRT.anchoredPosition = transform.GetChild(selectedTransformationsCount + 1).GetComponent<RectTransform>().anchoredPosition + pointerOffset;
             slider.Set(transformationsSO.datas[selectedTransformations[selectedTransformationsCount-1]]);
         }
         

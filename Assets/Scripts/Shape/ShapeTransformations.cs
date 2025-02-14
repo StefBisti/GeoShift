@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShapeTransformations : MonoBehaviour {
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private Transform shape, origin;
     [SerializeField] private TransformationsSO transformationsSO;
     [SerializeField] private CustomSlider slider;
@@ -15,12 +14,12 @@ public class ShapeTransformations : MonoBehaviour {
     private float currentK;
 
 
-    private void OnEnable(){
-        levelManager.OnLevelChanged += HandleOnLevelChanged;
+    private void Awake(){
+        LevelManager.Instance.OnLevelChanged += HandleOnLevelChanged;
     }
-    private void OnDisable(){
-        if(levelManager != null)
-            levelManager.OnLevelChanged -= HandleOnLevelChanged;
+    private void OnDestroy(){
+        if(LevelManager.Instance != null)
+            LevelManager.Instance.OnLevelChanged -= HandleOnLevelChanged;
     }
 
     public void SelectTransformation(int index){

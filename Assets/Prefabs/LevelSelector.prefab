@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 3809817817820919791}
   - component: {fileID: 2486520187052440918}
   - component: {fileID: 2539363380824342921}
+  - component: {fileID: 7056647297111064104}
   m_Layer: 0
   m_Name: LevelSelector
   m_TagString: Untagged
@@ -401,7 +402,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  mainSceneIndex: 0
   unpressedSprite: {fileID: 21300000, guid: 214cf03073b5d4469b11f166d3496a0a, type: 3}
   pressedSprite: {fileID: 21300000, guid: c53cc9ea352aa4af4bfd73ca85fe3413, type: 3}
   canvasContent: {fileID: 8903644537084810829}
   contentPosWhenPressed: {x: 0.04, y: -0.04}
+--- !u!114 &7056647297111064104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641742511717493279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285b0d4dad5244f2b9d272b20038bb4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 2

@@ -30,7 +30,7 @@ public class LevelSelector : MonoBehaviour {
     }
 
     private void HandleOnPointerClick(){
-        SceneManager.LoadSceneAsync(mainSceneIndex);
+        LevelManager.Instance.GoToLevel(level);
     }
 
     private void SetListeners(){

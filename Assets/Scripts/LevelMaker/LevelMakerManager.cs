@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -95,6 +96,9 @@ public class LevelMakerManager : MonoBehaviour {
             FieldInfo endPos = typeof(MovingObstacle).GetField("endPos", BindingFlags.NonPublic | BindingFlags.Instance);
             data.endPos = (Vector2)endPos.GetValue(m);
 
+            FieldInfo startRotation = typeof(MovingObstacle).GetField("startRotation", BindingFlags.NonPublic | BindingFlags.Instance);
+            data.startRotation = (float)startRotation.GetValue(m);
+
             FieldInfo rotationSpeed = typeof(MovingObstacle).GetField("rotationSpeed", BindingFlags.NonPublic | BindingFlags.Instance);
             data.rotationSpeed = (float)rotationSpeed.GetValue(m);
 
@@ -116,6 +120,9 @@ public class LevelMakerManager : MonoBehaviour {
             FieldInfo orbitingSpeed = typeof(MovingObstacle).GetField("orbitingSpeed", BindingFlags.NonPublic | BindingFlags.Instance);
             data.orbitingSpeed = (float)orbitingSpeed.GetValue(m);
 
+            FieldInfo isSquare = typeof(MovingObstacle).GetField("isSquare", BindingFlags.NonPublic | BindingFlags.Instance);
+            data.isSquare = (bool)isSquare.GetValue(m);
+            
             levelData.movingObstacles.Add(data);
         }
     }
@@ -147,3 +154,4 @@ public class LevelMakerManager : MonoBehaviour {
         axis.MoveTo(Vector3.zero);
     }
 }
+#endif

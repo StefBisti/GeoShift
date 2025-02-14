@@ -11,7 +11,7 @@ public class ShapeVisual : MonoBehaviour {
     [SerializeField] private float unitSize;
     [SerializeField] private ShapeColorsSO colors;
     [SerializeField] private float morphDuration;
-    [SerializeField] private AnimationCurve morphEase;
+    [SerializeField] private LeanTweenType morphEase = LeanTweenType.easeOutQuad;
     private float morphTimer = 0;
 
     [Header("Hand Drawn Animation")]

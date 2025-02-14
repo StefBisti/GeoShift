@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class ConfettiHandler : MonoBehaviour {
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private Camera confettiCam;
     [SerializeField] private ParticleSystem confetti1, confetti2;
     [SerializeField] private CanvasGroup confettiTexture;
@@ -9,13 +8,13 @@ public class ConfettiHandler : MonoBehaviour {
     private float timer = 0f;
     private bool active = false;
 
-    private void OnEnable(){
-        levelManager.OnLevelChanged += HandleOnLevelChanged;
+    private void Awake(){
+        LevelManager.Instance.OnLevelChanged += HandleOnLevelChanged;
     }
 
-    private void OnDisable(){
-        if(levelManager != null)
-            levelManager.OnLevelChanged -= HandleOnLevelChanged;
+    private void OnDestroy(){
+        if(LevelManager.Instance != null)
+            LevelManager.Instance.OnLevelChanged -= HandleOnLevelChanged;
     }
 
     private void Update(){
@@ -38,5 +37,7 @@ public class ConfettiHandler : MonoBehaviour {
         confettiTexture.alpha = 1f;
         confetti1.Play();
         confetti2.Play();
+        Audio.Instance.PlaySfx(AudioFx.PartyHorn);
+        Audio.Instance.PlaySfx(AudioFx.RustlingPaper);
     }
 }

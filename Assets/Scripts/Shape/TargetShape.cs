@@ -5,7 +5,6 @@ using UnityEngine;
 public class TargetShape : ShapeBase {
     public event Action<LevelData> OnTargetChanged;
     [SerializeField] private ShapeBase mainShape;
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private Transform mainShapeTransform;
     [SerializeField] private float minDist, maxDist, addRotationThreshold, scaleThreshold, completionThreshold, completionTimeThreshold;
     [SerializeField] private float[] shapeSymmetryCounts;
@@ -19,7 +18,7 @@ public class TargetShape : ShapeBase {
     public float Score { get; private set;}
 
     private void Start() {
-        currentLevelData = levelManager.GetCurrentLevelData();
+        currentLevelData = LevelManager.Instance.GetCurrentLevelData();
         OnTargetChanged?.Invoke(currentLevelData);
 
         SetShape(currentLevelData.targetShapeType);
@@ -51,8 +50,8 @@ public class TargetShape : ShapeBase {
         if(playing == false) return;
         playing = false;
 
-        levelManager.TriggerCompleteLevel();
-        currentLevelData = levelManager.GetCurrentLevelData(); // new level data
+        LevelManager.Instance.TriggerCompleteLevel();
+        currentLevelData = LevelManager.Instance.GetCurrentLevelData(); // new level data
 
         SetShape(currentLevelData.targetShapeType);
         transform.LeanMove(currentLevelData.targetPosData.worldPos, animationDuration).setEase(moveEase);

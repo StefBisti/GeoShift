@@ -2,6 +2,7 @@
 using UnityEngine;
 
 public class ShapeSelectors : MonoBehaviour {
+    [SerializeField] private MainShape mainShape;
     [SerializeField] private RectTransform[] buttons;
     [SerializeField] private CanvasGroup[] cgs;
     [SerializeField] private Vector2 distanceBetweenButtons;
@@ -9,6 +10,16 @@ public class ShapeSelectors : MonoBehaviour {
     [SerializeField] private LeanTweenType showAnimationEase, hideAnimationEase;
     private bool ongoingAnimation = false, buttonsShown = false;
     private int selectedIndex = 0;
+
+
+    private void Start(){
+        int shapeType = (int)mainShape.ShapeType;
+        selectedIndex = shapeType;
+        buttons[selectedIndex].SetAsLastSibling();
+        for(int i=0; i<cgs.Length;i++){
+            cgs[i].SetCG(i == shapeType);
+        }
+    }
 
     private void ShowButtons(){
         if(ongoingAnimation == true) return;
@@ -54,5 +65,9 @@ public class ShapeSelectors : MonoBehaviour {
             HideButtons();
             buttonsShown = false;
         }
+    }
+
+    public void PlayPressSound(){
+        Audio.Instance.PlaySfx(AudioFx.ButtonPress);
     }
 }

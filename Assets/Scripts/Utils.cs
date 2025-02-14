@@ -18,3 +18,29 @@ public static class Utils {
         go.StartCoroutine(DoAfterSeconds(seconds, action));
     }
 }
+
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
+        private static T _instance;
+        public static T Instance {
+            get => _instance;
+        }
+
+        private void Awake() {
+            if (_instance != null) {
+                Destroy(gameObject);
+                return;
+            }
+
+            _instance = this as T;
+            DontDestroyOnLoad(_instance);
+            SingletonInit();
+        }
+
+        private void OnDestroy() {
+            if (_instance == this)
+                _instance = null;
+        }
+
+        protected virtual void SingletonInit() { }
+    }
+

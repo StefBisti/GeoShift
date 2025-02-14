@@ -2,22 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclesParent : MonoBehaviour {
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private StaticObstacle staticObstacelPrefab;
     [SerializeField] private MovingObstacle movingObstacle;
     private List<GameObject> obstacles = new List<GameObject>();
 
-    private void OnEnable(){
-        levelManager.OnLevelChanged += SetObstacles;
-    }
-
-    private void OnDisable(){
-        if(levelManager != null)
-            levelManager.OnLevelChanged -= SetObstacles;
-    }
-
     private void Awake(){
-        SetObstacles(levelManager.Level);
+        LevelManager.Instance.OnLevelChanged += SetObstacles;
+        SetObstacles(LevelManager.Instance.Level);
+    }
+
+    private void OnDestroy(){
+        if(LevelManager.Instance != null)
+            LevelManager.Instance.OnLevelChanged -= SetObstacles;
     }
 
     private void SetObstacles(int level){
@@ -26,7 +22,7 @@ public class ObstaclesParent : MonoBehaviour {
         }
         obstacles = new List<GameObject>();
 
-        LevelData levelData = levelManager.GetLevelData(level);
+        LevelData levelData = LevelManager.Instance.GetLevelData(level);
         if(levelData.staticObstacles != null){
             foreach(StaticObstacleData data in levelData.staticObstacles){
                 StaticObstacle obstacle = Instantiate(staticObstacelPrefab, Vector3.zero, Quaternion.identity, transform);

@@ -13,5 +13,7 @@ public struct LevelData {
     public int[] availableTransformations;
     public List<StaticObstacleData> staticObstacles;
     public List<MovingObstacleData> movingObstacles;
+    public List<Vector2> diamondPositions;
+    public bool lastIsGift;
 }
 

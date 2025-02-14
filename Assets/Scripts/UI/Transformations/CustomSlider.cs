@@ -14,7 +14,6 @@ public class CustomSlider : MonoBehaviour {
     [SerializeField] private float hideY, shownY, hideAnimationDuration;
     [SerializeField] private LeanTweenType hideEase, showEase;
     [SerializeField] private CanvasGroup sliderCanvasGroup;
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private ShapeTransformations shapeTransformations;
     [SerializeField] private TargetShape targetShape;
     [SerializeField] private MainShape mainShape;
@@ -23,22 +22,28 @@ public class CustomSlider : MonoBehaviour {
     private float initX;
     private bool on = false;
 
-    private void OnEnable(){
-        levelManager.OnLevelChanged += HandleOnLevelChanged;
+    private void Awake(){
+        LevelManager.Instance.OnLevelChanged += HandleOnLevelChanged;
+        LevelManager.Instance.OnRequestedExit += HandleOnExit;
+        Diamonds.Instance.OnGiftGot += LoseFocus;
+        Diamonds.Instance.OnGiftEnded += RegainFocus;
         mainShape.OnDeath += Hide;
+        p = Mathf.Pow(10f, decimals);
+        SetupEvents();
     }
-    private void OnDisable(){
-        if(levelManager != null)
-            levelManager.OnLevelChanged -= HandleOnLevelChanged;
+    private void OnDestroy(){
+        if(LevelManager.Instance != null) {
+            LevelManager.Instance.OnLevelChanged -= HandleOnLevelChanged;
+            LevelManager.Instance.OnRequestedExit -= HandleOnExit;
+        }
+        if(Diamonds.Instance != null){
+            Diamonds.Instance.OnGiftGot -= LoseFocus;
+            Diamonds.Instance.OnGiftEnded -= RegainFocus;
+        }
 
         if(mainShape != null){
             mainShape.OnDeath -= Hide;
         }
-    }
-
-    private void Awake(){
-        p = Mathf.Pow(10f, decimals);
-        SetupEvents();
     }
 
     private void Start() {
@@ -81,7 +86,15 @@ public class CustomSlider : MonoBehaviour {
         if(on == false) return;
         on = false;
         sliderCanvasGroup.blocksRaycasts = sliderCanvasGroup.interactable = on;
+
         LeanTween.value(sliderRT.gameObject, MoveToY, shownY, hideY, hideAnimationDuration);
+    }
+
+    private void LoseFocus(Vector2 _){
+        on = false;
+    }
+    private void RegainFocus(){
+        on = true;
     }
 
     private void MoveToY(float y){
@@ -109,6 +122,7 @@ public class CustomSlider : MonoBehaviour {
     }
 
     private void HandleDrag(PointerEventData eventData){
+        if(on == false) return;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(clampRT, eventData.position, null, out Vector2 localPoint);
         float clampedX = Mathf.Clamp(localPoint.x, -knobClamp, knobClamp);
         knobRT.anchoredPosition = new Vector2(clampedX, knobY);
@@ -127,10 +141,12 @@ public class CustomSlider : MonoBehaviour {
     }
 
     private void OnEndDrag(){
+        if(on == false) return;
         targetShape.CheckCompletion();
     }
 
     private void HandleOnLevelChanged(int _) => Hide();
+    private void HandleOnExit(float _) => Hide();
 
     private void SetupEvents(){
         EventTrigger.Entry onDrag = new EventTrigger.Entry();

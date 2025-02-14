@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 
 public class LevelTitle : MonoBehaviour {
-    [SerializeField] private LevelManager levelManager;
     [SerializeField] private float topY, bottomY;
     [SerializeField] private TextMeshProUGUI mainValue, secondaryValue;
     [SerializeField] private RectTransform mainRT, secondaryRT;
@@ -12,20 +11,17 @@ public class LevelTitle : MonoBehaviour {
     [SerializeField] private LeanTweenType moveEase, alphaShowEase, alphaHideEase;
     private float xPos;
 
-    private void OnEnable(){
-        levelManager.OnLevelChanged += SetNewLevel;
-    }
-    private void OnDisable(){
-        if(levelManager != null)
-            levelManager.OnLevelChanged -= SetNewLevel;
-    }
-
     private void Awake(){
+        LevelManager.Instance.OnLevelChanged += SetNewLevel;
         xPos = mainRT.anchoredPosition.x;
+    }
+    private void OnDestroy(){
+        if(LevelManager.Instance != null)
+            LevelManager.Instance.OnLevelChanged -= SetNewLevel;
     }
 
     private void Start(){
-        mainValue.text = (levelManager.Level + 1).ToString();
+        mainValue.text = (LevelManager.Instance.Level + 1).ToString();
     }
 
     private void SetNewLevel(int level) => StartCoroutine(HandleAnimation(level+1));
