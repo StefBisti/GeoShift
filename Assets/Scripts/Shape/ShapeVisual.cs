@@ -18,7 +18,7 @@ public class ShapeVisual : MonoBehaviour {
     [SerializeField] private bool isStatic;
     [SerializeField] private float startRotation, rotationsThreshold, moveYThreshold, moveXStep;
     [SerializeField] private float timeBetweenSnaps;
-        
+    [SerializeField] private ShapeTexturesSO texturesSO;
         
     private float timer = 0f;
 
@@ -53,6 +53,7 @@ public class ShapeVisual : MonoBehaviour {
         }
         SetMesh(positions);
         SetColor((int)parent.ShapeType);
+        SetTexture();
     }
 
     private void Update() {
@@ -143,4 +144,10 @@ public class ShapeVisual : MonoBehaviour {
     private void SetColor(int colorIndex) => SetColor(colorIndex, alphaShape, alphaVertices);
     private void Hide() => SetColor((int)parent.ShapeType, 0f, 0f);
     private void Show() => SetColor((int)parent.ShapeType, alphaShape, alphaVertices);
+
+
+    private void SetTexture(){
+        ShapeTextureData data = texturesSO.data[Customizations.Instance.SelectedIndex];
+        meshRenderer.material.SetTexture("_MainTex", data.sprite.texture);
+    }
 }

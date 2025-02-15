@@ -51,6 +51,14 @@ public class Hearts : Singleton<Hearts> {
         OnHeartsCountChanged?.Invoke(heartsCount);
     }
 
+    public void AddHeart(){
+        if(heartsCount == maxHearts) return;
+        heartsCount++;
+        PlayerPrefs.SetInt("CurrentHearts", heartsCount);
+        PlayerPrefs.Save();
+        OnHeartsCountChanged?.Invoke(heartsCount);
+    }
+
     private IEnumerator RefillHeartsOverTime(){
         while (true){
             if (heartsCount < maxHearts) {
