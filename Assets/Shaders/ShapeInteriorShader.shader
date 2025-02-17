@@ -54,7 +54,7 @@ Shader "Custom/ShapeInteriorShader" {
 
             float4 frag (v2f i) : SV_Target {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return col * _Color;
+                return float4(_Color.r, _Color.g, _Color.b, _Color.a * col.a);
             }
             ENDCG
         }

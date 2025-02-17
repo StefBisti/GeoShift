@@ -1872,6 +1872,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170722585}
   m_CullTransparentMesh: 1
+--- !u!1 &185668301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185668303}
+  - component: {fileID: 185668302}
+  m_Layer: 0
+  m_Name: Customizations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &185668302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185668301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8133963ac460f410f936de5542a47c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &185668303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185668301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199548830
 GameObject:
   m_ObjectHideFlags: 0
@@ -15389,7 +15433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Refill for 300 C
+  m_text: Refill for 20<sprite name=diamond>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa0f4411c564242aba5e7e41ad2887bc, type: 2}
   m_sharedMaterial: {fileID: -5052862853405972825, guid: aa0f4411c564242aba5e7e41ad2887bc, type: 2}
@@ -24304,6 +24348,7 @@ MonoBehaviour:
   moveYThreshold: 0
   moveXStep: 0
   timeBetweenSnaps: 0
+  texturesSO: {fileID: 11400000, guid: 2d725cc8598ca4872bf0f1f16167ab93, type: 2}
 --- !u!23 &1716532410
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24604,7 +24649,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   timeBetweenDiamonds: 0.1
   minDiamonds: 10
-  maxDiamonds: 20
+  maxDiamonds: 200
 --- !u!114 &1734684314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24841,7 +24886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9844f36befd2340e488813d210c71cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraTransformationsCounts: 0600000006000000060000000600000006000000
 --- !u!4 &1769556064
 Transform:
   m_ObjectHideFlags: 0
@@ -26509,6 +26553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e201e851f2274d7188c526ca6852e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondsCount: 0
   loadCollectedDiamonds: 1
 --- !u!4 &2020227923
 Transform:
@@ -27737,11 +27782,12 @@ MonoBehaviour:
   morphDuration: 0.5
   morphEase: 2
   isStatic: 0
-  startRotation: 45
-  rotationsThreshold: 2
-  moveYThreshold: 4
-  moveXStep: 0.25
+  startRotation: 0
+  rotationsThreshold: 5
+  moveYThreshold: 0
+  moveXStep: 0
   timeBetweenSnaps: 0.3
+  texturesSO: {fileID: 11400000, guid: 2d725cc8598ca4872bf0f1f16167ab93, type: 2}
 --- !u!1 &839812812046995265
 GameObject:
   m_ObjectHideFlags: 0
@@ -29729,6 +29775,7 @@ SceneRoots:
   - {fileID: 434889910}
   - {fileID: 716892153}
   - {fileID: 2020227923}
+  - {fileID: 185668303}
   - {fileID: 1769556064}
   - {fileID: 582947177}
   - {fileID: 938677565}

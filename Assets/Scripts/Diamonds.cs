@@ -5,7 +5,7 @@ public class Diamonds : Singleton<Diamonds> {
     public event Action<int> OnDiamondCountChanged;
     public event Action<Vector2> OnDiamondGot, OnGiftGot;
     public event Action OnGiftEnded;
-    private int diamondsCount;
+    [SerializeField] private int diamondsCount;
     [SerializeField] private bool loadCollectedDiamonds;
     private string collectedDiamondsString = "";
 

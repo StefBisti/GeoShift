@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class ExtraTransformations : Singleton<ExtraTransformations> {
     public event Action<int[]> OnExtraTransformationAdded;
-    [SerializeField] private int[] extraTransformationsCounts = new int[5];
+    private int[] extraTransformationsCounts = new int[5];
     private string usedExtraTransformations = "";
     public int[] ExtraTransformationsCounts { get => extraTransformationsCounts; }
 
     protected override void SingletonInit(){
-        PlayerPrefs.SetInt("ExtraTransformations", Encode(extraTransformationsCounts));
-        PlayerPrefs.Save();
         extraTransformationsCounts = Decode(PlayerPrefs.GetInt("ExtraTransformations", 0));
         usedExtraTransformations = PlayerPrefs.GetString("UsedExtraTransformations", "");
     }
