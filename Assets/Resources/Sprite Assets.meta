@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Sprite Assets.meta
 guid: aa2bf1b311df5434f85ef78fb0af299a
 folderAsset: yes
+========
+guid: 79ec03f4181f349cb88e4c402ccacf8b
+>>>>>>>> 8ace2589a081e7dc4b078fc7a2729aff3e6c7ce1:Assets/Sprites/ShapeTextures/ShapeTexture2.png-autosave.kra.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
