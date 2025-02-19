@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3001837522632119622}
   - component: {fileID: 2143133008459774544}
   - component: {fileID: 2861591491213528281}
-  m_Layer: 5
+  - component: {fileID: 3046121951412141314}
+  m_Layer: 3
   m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &3046121951412141314
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361716162910227056}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3184139206703356197
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,8 +160,7 @@ GameObject:
   - component: {fileID: 8903644537084810829}
   - component: {fileID: 4754309913053704454}
   - component: {fileID: 6091172520118992384}
-  - component: {fileID: 7179736835651974895}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +204,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -221,23 +233,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &7179736835651974895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3184139206703356197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &6641742511717493279
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +247,7 @@ GameObject:
   - component: {fileID: 2486520187052440918}
   - component: {fileID: 2539363380824342921}
   - component: {fileID: 7056647297111064104}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LevelSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,6 +402,10 @@ MonoBehaviour:
   pressedSprite: {fileID: 21300000, guid: c53cc9ea352aa4af4bfd73ca85fe3413, type: 3}
   canvasContent: {fileID: 8903644537084810829}
   contentPosWhenPressed: {x: 0.04, y: -0.04}
+  disabledColor: {r: 1, g: 1, b: 1, a: 0.4392157}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledAlpha: 0.4
+  cg: {fileID: 3046121951412141314}
 --- !u!114 &7056647297111064104
 MonoBehaviour:
   m_ObjectHideFlags: 0

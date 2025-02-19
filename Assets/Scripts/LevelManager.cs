@@ -8,10 +8,12 @@ public class LevelManager : Singleton<LevelManager> {
     public event Action OnEnteringLevelFailed;
     [SerializeField] private LevelsSO levelsData;
     [SerializeField] private float exitAndEnterAnimationDuration;
-    private int level = 0;
+    [SerializeField] private bool loadLevel;
+    private int level = 0, maxLevel = 0;
     private bool isMain = true;
 
     public int Level { get => level; }
+    public int MaxLevel { get => maxLevel; }
     public bool IsMain { get => isMain; }
 
     
@@ -19,8 +21,8 @@ public class LevelManager : Singleton<LevelManager> {
         Application.targetFrameRate = Application.isEditor ? -1 : 60;
         LeanTween.reset();
 
-
-        // retrieve level from save
+        if(loadLevel)
+            level = maxLevel = PlayerPrefs.GetInt("Level", 0);
     }
 
     private void Start(){
@@ -34,6 +36,8 @@ public class LevelManager : Singleton<LevelManager> {
 
     public void TriggerCompleteLevel(){
         level++;
+        PlayerPrefs.SetInt("Level", level);
+        maxLevel = Mathf.Max(maxLevel, level);
         OnLevelChanged?.Invoke(level);
     }
 

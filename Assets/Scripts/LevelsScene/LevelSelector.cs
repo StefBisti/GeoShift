@@ -8,6 +8,9 @@ public class LevelSelector : MonoBehaviour {
     [SerializeField] private Sprite unpressedSprite, pressedSprite;
     [SerializeField] private RectTransform canvasContent;
     [SerializeField] private Vector2 contentPosWhenPressed;
+    [SerializeField] private Color disabledColor, enabledColor;
+    [SerializeField] private float disabledAlpha;
+    [SerializeField] private CanvasGroup cg;
     private Vector2 contentInitPos;
     private EventTrigger eventTrigger;
     private SpriteRenderer spriteRenderer;
@@ -19,17 +22,31 @@ public class LevelSelector : MonoBehaviour {
         SetListeners();
     }
 
+    private void Start(){
+        if(level > LevelManager.Instance.MaxLevel){
+            cg.alpha = disabledAlpha;
+            spriteRenderer.color = disabledColor;
+        }
+        else{
+            cg.alpha = 1f;
+            spriteRenderer.color = enabledColor;
+        }
+    }
+
     private void HandleOnPointerDown(){
+        if(level > LevelManager.Instance.MaxLevel) return;
         spriteRenderer.sprite = pressedSprite;
         canvasContent.anchoredPosition = contentPosWhenPressed;
     }
 
     private void HandleOnPointerUp(){
+        if(level > LevelManager.Instance.MaxLevel) return;
         spriteRenderer.sprite = unpressedSprite;
         canvasContent.anchoredPosition = contentInitPos;
     }
 
     private void HandleOnPointerClick(){
+        if(level > LevelManager.Instance.MaxLevel) return;
         LevelManager.Instance.GoToLevel(level);
     }
 

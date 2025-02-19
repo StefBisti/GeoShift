@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MovingObstacle : MonoBehaviour {
     [SerializeField] private Transform parent, child;
-    [SerializeField] private PolygonCollider2D triangleCollider;
-    [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite triangleSprite, boxSprite;
     [SerializeField] private bool isSquare = false;
@@ -40,8 +38,6 @@ public class MovingObstacle : MonoBehaviour {
         parent.position = startPos;
         child.localPosition = childLocalPos;
 
-        triangleCollider.enabled = !isSquare;
-        boxCollider.enabled = isSquare;
         spriteRenderer.sprite = isSquare ? boxSprite : triangleSprite;
 
         child.localEulerAngles = Vector3.forward * startRotation;
@@ -60,8 +56,6 @@ public class MovingObstacle : MonoBehaviour {
 
         if(lastIsSquare != isSquare){
             lastIsSquare = isSquare;
-            triangleCollider.enabled = !isSquare;
-            boxCollider.enabled = isSquare;
             spriteRenderer.sprite = isSquare ? boxSprite : triangleSprite;
         }
     }

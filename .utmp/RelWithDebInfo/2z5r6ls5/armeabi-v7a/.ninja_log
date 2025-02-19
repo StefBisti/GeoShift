@@ -1,0 +1,23 @@
+# ninja log v5
+1136	1247	1739971631640040145	/Users/stefanbisti/Documents/UnityProjects/GeoShift/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2z5r6ls5/obj/armeabi-v7a/libgame.so	42271b2763739c8c
+1	1136	1739971631531986193	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2e92b5ea8d5f97b2
+1	950	1739971631345912531	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ab29a7775ef65bbc
+2	1017	1739971631413757085	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8389ae63d563e060
+3	884	1739971631279189767	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	fbd9dc26c44f139a
+2	843	1739971631238127463	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c871f0153960a5fd
+1	842	1739971631236641743	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	e87dcc382306d4e9
+3	803	1739971631196258506	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c303fa173042a904
+4	238	1739971630631122298	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	27d9b5aa1f226802
+239	454	1739971630846792897	/Users/stefanbisti/Documents/UnityProjects/GeoShift/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2z5r6ls5/obj/armeabi-v7a/libswappywrapper.so	92c68d6c1908510d
+3	794	1739971631185634667	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	ff2395cd1f5a2da8
+4	260	1739971766212822275	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	27d9b5aa1f226802
+261	432	1739971766376958640	/Users/stefanbisti/Documents/UnityProjects/GeoShift/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2z5r6ls5/obj/armeabi-v7a/libswappywrapper.so	92c68d6c1908510d
+1	1052	1739971766998304983	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	e87dcc382306d4e9
+2	1094	1739971767042841223	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c871f0153960a5fd
+3	1111	1739971767061251050	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	ff2395cd1f5a2da8
+3	1151	1739971767099231448	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c303fa173042a904
+4	1199	1739971767148678582	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	fbd9dc26c44f139a
+1	1219	1739971767170934015	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ab29a7775ef65bbc
+2	1364	1739971767315314310	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8389ae63d563e060
+0	1415	1739971767366708476	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2e92b5ea8d5f97b2
+1415	1531	1739971767479270301	/Users/stefanbisti/Documents/UnityProjects/GeoShift/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2z5r6ls5/obj/armeabi-v7a/libgame.so	42271b2763739c8c

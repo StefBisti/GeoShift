@@ -18,173 +18,384 @@ MonoBehaviour:
       scale: 1
       rot: 0
     targetShapeType: 0
-    availableTransformations: 0100000001000000050000000500000005000000
+    availableTransformations: 0100000001000000000000000000000000000000
     staticObstacles: []
     movingObstacles: []
-    diamondPositions:
-    - {x: 4, y: -5}
-    - {x: -4, y: -5}
-    - {x: 4, y: 4}
-    - {x: 4, y: 6}
-    - {x: 5, y: 7}
-    - {x: 2, y: 1}
-    - {x: 4, y: 12}
-    lastIsGift: 1
+    diamondPositions: []
+    lastIsGift: 0
   - targetPosData:
-      worldPos: {x: -6.0036144, y: 6.1608953}
+      worldPos: {x: -7.0000014, y: 4.999999}
       scale: 1.0000002
-      rot: 79.796906
+      rot: 90
     targetShapeType: 3
     availableTransformations: 0000000000000000010000000000000000000000
     staticObstacles: []
     movingObstacles: []
-    diamondPositions:
-    - {x: -1, y: 8}
-    lastIsGift: 1
+    diamondPositions: []
+    lastIsGift: 0
   - targetPosData:
-      worldPos: {x: -3.0018082, y: -1.9195523}
+      worldPos: {x: -3.5000029, y: -2.5000002}
       scale: 0.5000001
-      rot: 79.796906
+      rot: 90
     targetShapeType: 2
     availableTransformations: 0000000001000000000000000100000000000000
     staticObstacles: []
     movingObstacles: []
-    diamondPositions: []
+    diamondPositions:
+    - {x: -7.34, y: -1.04}
     lastIsGift: 0
   - targetPosData:
-      worldPos: {x: -2.5027585, y: 3.661478}
-      scale: 0.49999994
-      rot: 229.7969
+      worldPos: {x: -2.4661117, y: 4.5186577}
+      scale: 0.49999997
+      rot: 237.67868
     targetShapeType: 1
     availableTransformations: 0100000000000000010000000000000000000000
     staticObstacles:
     - points:
-      - {x: -5, y: 1}
-      - {x: -5, y: 0}
-      - {x: 0, y: 0}
-      - {x: 0, y: 1}
+      - {x: -7, y: -0}
+      - {x: -0, y: -0}
+      - {x: -0, y: 1}
+      - {x: -7, y: 1}
     movingObstacles: []
-    diamondPositions: []
+    diamondPositions:
+    - {x: 4.468157, y: -2.5515065}
     lastIsGift: 0
   - targetPosData:
-      worldPos: {x: 6.497242, y: 3.661478}
-      scale: 0.9999999
-      rot: 229.7969
+      worldPos: {x: 7.0981545, y: 4.5186567}
+      scale: 0.99999994
+      rot: 237.67868
     targetShapeType: 3
     availableTransformations: 0100000000000000000000000100000001000000
     staticObstacles: []
     movingObstacles:
     - isSquare: 0
       isMoving: 1
-      startPos: {x: 1.8, y: 14}
-      endPos: {x: 1.8, y: -4}
+      startPos: {x: 1.5, y: 10}
+      endPos: {x: 1.5, y: 0}
       startRotation: 180
       rotationSpeed: 0
       halfCycleDuration: 1
-      firstHalfEase: 3
-      secondHalfEase: 2
+      firstHalfEase: 11
+      secondHalfEase: 3
       isOrbiting: 1
       childLocalPos: {x: 0, y: 0}
       orbitingSpeed: 0
     diamondPositions: []
     lastIsGift: 0
   - targetPosData:
-      worldPos: {x: 0.43162656, y: -6.4240723}
-      scale: 0.5
-      rot: 281.6915
-    targetShapeType: 3
-    availableTransformations: 0100000002000000010000000100000001000000
-    staticObstacles:
-    - points:
-      - {x: -8, y: 12}
-      - {x: -8, y: 17}
-      - {x: -6, y: 17}
-      - {x: -6, y: 15}
-      - {x: -4, y: 16}
-      - {x: -3, y: 11}
-    movingObstacles: []
-    diamondPositions: []
-    lastIsGift: 0
-  - targetPosData:
-      worldPos: {x: 0.43162656, y: -6.4240723}
-      scale: 4
-      rot: 281.6915
-    targetShapeType: 3
-    availableTransformations: 0000000000000000000000000300000001000000
-    staticObstacles:
-    - points:
-      - {x: -8, y: 12}
-      - {x: -8, y: 17}
-      - {x: -6, y: 17}
-      - {x: -6, y: 15}
-      - {x: -4, y: 16}
-      - {x: -3, y: 11}
-    movingObstacles: []
-    diamondPositions: []
-    lastIsGift: 0
-  - targetPosData:
-      worldPos: {x: 0.053953327, y: -0.029712085}
-      scale: 0.5
-      rot: 281.6915
-    targetShapeType: 3
-    availableTransformations: 0000000001000000000000000300000000000000
-    staticObstacles:
-    - points:
-      - {x: -8, y: 12}
-      - {x: -8, y: 17}
-      - {x: -6, y: 17}
-      - {x: -6, y: 15}
-      - {x: -4, y: 16}
-      - {x: -3, y: 11}
-    movingObstacles: []
-    diamondPositions: []
-    lastIsGift: 0
-  - targetPosData:
-      worldPos: {x: 0.053953327, y: -0.029712087}
-      scale: 0.5
-      rot: 281.6915
-    targetShapeType: 3
-    availableTransformations: 0000000000000000000000000000000000000000
-    staticObstacles:
-    - points:
-      - {x: -8, y: 16}
-      - {x: -8, y: 12}
-      - {x: -7, y: 12}
-      - {x: -7, y: 14}
-      - {x: -6, y: 14}
-      - {x: -6, y: 13}
-      - {x: -5, y: 13}
-      - {x: -5, y: 14}
-      - {x: -4, y: 14}
-      - {x: -4, y: 12}
-      - {x: -3, y: 12}
-      - {x: -3, y: 16}
-      - {x: -4, y: 16}
-      - {x: -4, y: 15}
-      - {x: -5, y: 15}
-      - {x: -5, y: 16}
-      - {x: -6, y: 16}
-      - {x: -6, y: 15}
-      - {x: -7, y: 15}
-      - {x: -7, y: 19}
-      - {x: -6, y: 19}
-      - {x: -6, y: 18}
-      - {x: -5, y: 18}
-      - {x: -5, y: 20}
-      - {x: -8, y: 20}
-      - {x: -8, y: 18}
-      - {x: -9, y: 18}
-      - {x: -9, y: 16}
-    movingObstacles: []
-    diamondPositions: []
-    lastIsGift: 0
-  - targetPosData:
-      worldPos: {x: 100, y: 0}
-      scale: 0
-      rot: 0
+      worldPos: {x: -6.1914682, y: 10.595686}
+      scale: 1.0000001
+      rot: 303.31622
     targetShapeType: 0
-    availableTransformations: 6300000063000000630000006300000063000000
-    staticObstacles: []
+    availableTransformations: 0000000001000000010000000000000000000000
+    staticObstacles:
+    - points:
+      - {x: 2, y: 7}
+      - {x: 2, y: -3}
+      - {x: -3, y: -3}
+      - {x: -3, y: -4}
+      - {x: 3, y: -4}
+      - {x: 3, y: 7}
     movingObstacles: []
-    diamondPositions: []
+    diamondPositions:
+    - {x: 6.8884306, y: -3.1322358}
+    lastIsGift: 1
+  - targetPosData:
+      worldPos: {x: 3.0024104, y: -5.4474483}
+      scale: 0.5000002
+      rot: 67.67356
+    targetShapeType: 1
+    availableTransformations: 0000000001000000010000000100000001000000
+    staticObstacles:
+    - points:
+      - {x: -1, y: 8}
+      - {x: -1, y: 0}
+      - {x: 2, y: -0}
+      - {x: 2, y: 1}
+      - {x: -0, y: 1}
+      - {x: -0, y: 8}
+    movingObstacles: []
+    diamondPositions:
+    - {x: -4.41, y: -3.95}
     lastIsGift: 0
+  - targetPosData:
+      worldPos: {x: -3.0024104, y: -4.5525527}
+      scale: 0.9999998
+      rot: 217.67357
+    targetShapeType: 3
+    availableTransformations: 0000000001000000020000000100000001000000
+    staticObstacles: []
+    movingObstacles:
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: 0, y: 3}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 0, y: 3}
+      orbitingSpeed: 1
+    diamondPositions:
+    - {x: -9.076214, y: 5.0107155}
+    lastIsGift: 1
+  - targetPosData:
+      worldPos: {x: -5.0865045, y: -6.029803}
+      scale: 1.0000002
+      rot: 43.850964
+    targetShapeType: 2
+    availableTransformations: 0100000001000000010000000000000000000000
+    staticObstacles: []
+    movingObstacles:
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: -5, y: 5}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 0, y: 3}
+      orbitingSpeed: 1
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: 5, y: -5}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 0, y: 3}
+      orbitingSpeed: 1
+    diamondPositions:
+    - {x: 5.428207, y: -3.5286832}
+    - {x: -3.8646684, y: 7}
+    lastIsGift: 0
+  - targetPosData:
+      worldPos: {x: -4.598573, y: 3.9031444}
+      scale: 0.50000006
+      rot: 272.09003
+    targetShapeType: 0
+    availableTransformations: 0100000000000000010000000100000001000000
+    staticObstacles:
+    - points:
+      - {x: -1, y: -9}
+      - {x: -1, y: -10}
+      - {x: 6, y: -10}
+      - {x: 6, y: -7}
+      - {x: 5, y: -7}
+      - {x: 5, y: -9}
+    movingObstacles:
+    - isSquare: 1
+      isMoving: 1
+      startPos: {x: 0, y: 0}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 8, y: 0}
+      orbitingSpeed: 0.5
+    diamondPositions:
+    - {x: 2.0777836, y: -2.4857278}
+    - {x: -7.1361713, y: 9.082906}
+    lastIsGift: 1
+  - targetPosData:
+      worldPos: {x: 2.2992864, y: 1.2039541}
+      scale: 1.0000001
+      rot: 92.090034
+    targetShapeType: 1
+    availableTransformations: 0000000001000000010000000300000001000000
+    staticObstacles:
+    - points:
+      - {x: -8, y: 6}
+      - {x: 1, y: 6}
+      - {x: 1, y: 7}
+      - {x: -9, y: 7}
+      - {x: -9, y: -2}
+      - {x: -8, y: -2}
+      - {x: -8, y: -8}
+      - {x: 6, y: -8}
+      - {x: 6, y: -7}
+      - {x: -7, y: -7}
+      - {x: -7, y: -1}
+      - {x: -8, y: -1}
+    movingObstacles: []
+    diamondPositions:
+    - {x: -4.67, y: -4.88}
+    - {x: 5.78, y: 9.23}
+    lastIsGift: 0
+  - targetPosData:
+      worldPos: {x: -5.5205126, y: -7.0859337}
+      scale: 0.49999997
+      rot: 137.1594
+    targetShapeType: 2
+    availableTransformations: 0100000001000000020000000100000001000000
+    staticObstacles: []
+    movingObstacles:
+    - isSquare: 1
+      isMoving: 1
+      startPos: {x: -2, y: 6}
+      endPos: {x: -6, y: -6}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 0, y: 0}
+      orbitingSpeed: 0
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: 4, y: -5}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 2, y: 0}
+      orbitingSpeed: 1
+    diamondPositions:
+    - {x: -0.02, y: -5.94}
+    - {x: -4.85, y: 3.98}
+    lastIsGift: 0
+  - targetPosData:
+      worldPos: {x: -2.8220544, y: 0.12562501}
+      scale: 0.50000006
+      rot: 170.31363
+    targetShapeType: 3
+    availableTransformations: 0200000002000000010000000000000000000000
+    staticObstacles:
+    - points:
+      - {x: -8, y: 6}
+      - {x: -8, y: -3}
+      - {x: -1, y: -3}
+      - {x: -1, y: -9}
+      - {x: -0, y: -9}
+      - {x: -0, y: -2}
+      - {x: -7, y: -2}
+      - {x: -7, y: 5}
+      - {x: 2, y: 5}
+      - {x: 2, y: 2}
+      - {x: 3, y: 2}
+      - {x: 3, y: 6}
+    movingObstacles: []
+    diamondPositions:
+    - {x: 4.4180136, y: -7.245473}
+    - {x: -1.8857803, y: 8.667766}
+    lastIsGift: 0
+  - targetPosData:
+      worldPos: {x: 6.560134, y: 0.7193861}
+      scale: 0.50000006
+      rot: 33.01539
+    targetShapeType: 0
+    availableTransformations: 0000000001000000020000000000000001000000
+    staticObstacles:
+    - points:
+      - {x: -2, y: -10}
+      - {x: -2, y: 1}
+      - {x: -1, y: 1}
+      - {x: -1, y: -10}
+    movingObstacles: []
+    diamondPositions:
+    - {x: -2.039529, y: 5.2084126}
+    - {x: 3.3417585, y: -8.782937}
+    - {x: 3.18, y: 0.52}
+    lastIsGift: 0
+  - targetPosData:
+      worldPos: {x: -5.7021365, y: 3.3224258}
+      scale: 1.0000002
+      rot: 131.52953
+    targetShapeType: 1
+    availableTransformations: 0000000000000000020000000100000001000000
+    staticObstacles: []
+    movingObstacles:
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: 0, y: 0}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 3, y: 0}
+      orbitingSpeed: 2
+    diamondPositions:
+    - {x: -2.19, y: 12.13}
+    - {x: -2.42, y: -7.09}
+    - {x: 2.41, y: -1.94}
+    lastIsGift: 1
+  - targetPosData:
+      worldPos: {x: -4.6618237, y: -9.686389}
+      scale: 0.5000001
+      rot: 86.52953
+    targetShapeType: 3
+    availableTransformations: 0100000001000000020000000100000001000000
+    staticObstacles: []
+    movingObstacles:
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: -3, y: 3}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 3, y: 0}
+      orbitingSpeed: 2
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: 3, y: 3}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 3, y: 0}
+      orbitingSpeed: 2
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: 3, y: -3}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 3, y: 0}
+      orbitingSpeed: 2
+    - isSquare: 1
+      isMoving: 0
+      startPos: {x: -3, y: -3}
+      endPos: {x: 0, y: 0}
+      startRotation: 0
+      rotationSpeed: 0
+      halfCycleDuration: 1
+      firstHalfEase: 4
+      secondHalfEase: 4
+      isOrbiting: 1
+      childLocalPos: {x: 3, y: 0}
+      orbitingSpeed: 2
+    diamondPositions:
+    - {x: -4.73, y: -0.17}
+    - {x: 0.58, y: -4.94}
+    - {x: 5.87, y: -6.32}
+    - {x: 5.34, y: 2.6}
+    lastIsGift: 1

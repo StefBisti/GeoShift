@@ -127,6 +127,16 @@ public class LevelMakerManager : MonoBehaviour {
         }
     }
 
+    [ContextMenu("Add diamonds")]
+    private void AddDiamonds(){
+        List<Vector2> p = new List<Vector2>();
+        foreach(GameObject d in GameObject.FindGameObjectsWithTag("Diamond")){
+            p.Add(d.transform.position);
+            
+        }
+        levelData.diamondPositions = p;
+    }
+
     [ContextMenu("Clear")]
     private void ClearLevelData(){
         levelData = new LevelData();

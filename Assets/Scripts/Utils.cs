@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Utils {
     public static void SetCG(this CanvasGroup cg, bool value){
@@ -16,6 +18,17 @@ public static class Utils {
 
     public static void DoAfterSeconds(this MonoBehaviour go, float seconds, Action action){
         go.StartCoroutine(DoAfterSeconds(seconds, action));
+    }
+
+    public static bool IsPointerOverUIObject() {
+        return IsPointerOverUIObject(Input.mousePosition);
+    }
+    public static bool IsPointerOverUIObject(Vector3 pos) {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = pos;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        return results.Count > 0;
     }
 }
 

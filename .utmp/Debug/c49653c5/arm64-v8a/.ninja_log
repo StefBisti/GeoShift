@@ -1,0 +1,12 @@
+# ninja log v5
+4	369	1739798054763642040	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2b07600af7d80c07
+370	555	1739798054946506507	/Users/stefanbisti/Documents/UnityProjects/GeoShift/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/c49653c5/obj/arm64-v8a/libswappywrapper.so	98f9042794ec7041
+2	943	1739798055334564006	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	bfb5d5bfcb51c549
+3	1073	1739798055464595567	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	db884014da24721d
+0	1074	1739798055465825036	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b33acf291c385d12
+1	1107	1739798055498550980	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a02fc3b18fb06c80
+4	1114	1739798055505963335	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	90db27fd1c9d15ab
+3	1134	1739798055527090972	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	43da224ec9503cd4
+2	1173	1739798055564978460	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	389ee85c15382594
+0	1190	1739798055581253473	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	ea21faaf9469290f
+1190	1320	1739798055708507094	/Users/stefanbisti/Documents/UnityProjects/GeoShift/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/c49653c5/obj/arm64-v8a/libgame.so	6cc97363a69b7155

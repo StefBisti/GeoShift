@@ -154,6 +154,11 @@ public class CustomSlider : MonoBehaviour {
         onDrag.callback.AddListener(ev => HandleDrag(ev as PointerEventData));
         movementEventTrigger.triggers.Add(onDrag);
 
+        EventTrigger.Entry onPointerOver = new EventTrigger.Entry();
+        onPointerOver.eventID = EventTriggerType.PointerDown;
+        onPointerOver.callback.AddListener(ev => HandleDrag(ev as PointerEventData));
+        movementEventTrigger.triggers.Add(onPointerOver);
+
         EventTrigger.Entry onEndDrag = new EventTrigger.Entry();
         onEndDrag.eventID = EventTriggerType.EndDrag;
         onEndDrag.callback.AddListener(ev => OnEndDrag());
