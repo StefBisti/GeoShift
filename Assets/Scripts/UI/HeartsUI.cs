@@ -2,7 +2,6 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
 using TMPro;
-using Unity.Burst.Intrinsics;
 using System;
 
 public class HeartsUI : MonoBehaviour {

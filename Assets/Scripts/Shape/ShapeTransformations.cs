@@ -79,6 +79,9 @@ public class ShapeTransformations : MonoBehaviour {
     private void HandleOnLevelChanged(int _){
         currentTransformation = -1;
         moves = new Stack<Move>();
+        shape.position = LevelManager.Instance.GetLevelData(LevelManager.Instance.Level - 1).targetPosData.worldPos;
+        origin.localEulerAngles = Vector3.forward *  LevelManager.Instance.GetLevelData(LevelManager.Instance.Level - 1).targetPosData.rot;
+        origin.localScale = Vector3.one * LevelManager.Instance.GetLevelData(LevelManager.Instance.Level - 1).targetPosData.scale;
         Vector3 shapePos = shape.position;
         origin.position = Vector3.zero;
         shape.position = shapePos;
